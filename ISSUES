@@ -1,0 +1,24 @@
+cod_1  | psql -h db -p 5432 -U postgres -d "code-or-die" <<( "/code-or-die/code-or-die/bitemporal.sh" "code-or-die" )
+cod_1  | psql: could not connect to server: No such file or directory
+cod_1  |    Is the server running locally and accepting
+cod_1  | connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+cod_1  | Traceback (most recent call last):
+cod_1  |   File "/usr/local/bin/jinja2", line 11, in <module>
+cod_1  |     sys.exit(main())
+cod_1  |   File "/usr/local/lib/python3.6/site-packages/jinja2cli/cli.py", line 335, in main
+cod_1  |     sys.exit(cli(opts, args))
+cod_1  |   File "/usr/local/lib/python3.6/site-packages/jinja2cli/cli.py", line 257, in cli
+cod_1  |     output = render(template_path, data, extensions, opts.strict)
+cod_1  |   File "/usr/local/lib/python3.6/site-packages/jinja2cli/cli.py", line 183, in render
+cod_1  |     output = env.get_template(os.path.basename(template_path)).render(data)
+cod_1  |   File "/usr/local/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+cod_1  |     return original_render(self, *args, **kwargs)
+cod_1  |   File "/usr/local/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+cod_1  |     return self.environment.handle_exception(exc_info, True)
+cod_1  |   File "/usr/local/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+cod_1  |     reraise(exc_type, exc_value, tb)
+cod_1  |   File "/usr/local/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+cod_1  |     raise value.with_traceback(tb)
+cod_1  |   File "/code-or-die/code-or-die/bitemporal.sql.template", line 18, in top-level template code
+cod_1  |     {% for table in tables %}
+cod_1  | TypeError: 'NoneType' object is not iterable

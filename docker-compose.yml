@@ -1,0 +1,19 @@
+version: '3'
+services:
+    db:
+        restart: always
+        build:
+            context: ./dockerfiles/awesome-postgres
+        expose:
+            - "5432"
+        environment:
+            PGDATA: "/code-or-die/db/"
+            POSTGRES_DB: "code-or-die"
+            POSTGRES_LOGFILE: "/var/log/code-or-die.db.log"
+            POSTGRES_INITDB_ARGS: "-D /code-or-die/db/"
+    cod:
+        restart: always
+        build: 
+            context: ./code-or-die/
+        depends_on:
+            - db
