@@ -1,7 +1,6 @@
 version: '3'
 services:
     db:
-        restart: always
         build:
             context: ./dockerfiles/awesome-postgres
         expose:
@@ -11,8 +10,13 @@ services:
             POSTGRES_DB: "code-or-die"
             POSTGRES_LOGFILE: "/var/log/code-or-die.db.log"
             POSTGRES_INITDB_ARGS: "-D /code-or-die/db/"
+        healthcheck:
+            test: ["CMD", "postgres", "-c", "'CREATE EXTENSION plpython3u;'", "-U", "postgres", "code-or-die"]
+            interval: 15s
+            timeout: 10s
+            retries: 3
     cod:
-        restart: always
+        # restart: always
         build: 
             context: ./code-or-die/
         depends_on:
