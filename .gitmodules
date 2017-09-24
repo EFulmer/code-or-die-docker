@@ -1,6 +1,6 @@
 [submodule "dockerfiles"]
 	path = dockerfiles
-	url = git@github.com:EFulmer/dockerfiles.git
+	url = https://github.com/EFulmer/dockerfiles.git
 [submodule "code-or-die"]
 	path = code-or-die
-	url = git@github.com:EFulmer/code-or-die.git
+	url = https://github.com/EFulmer/code-or-die.git
